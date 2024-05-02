@@ -139,7 +139,7 @@
         android:backgroundTint="@color/green_button"
         android:minHeight="@dimen/value_60_dp"
         android:text="@string/create_new_note"
-        android:textColor="@color/light_white_edit_text_reg"
+        android:textColor="@color/light_white_edit_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
         app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left" />

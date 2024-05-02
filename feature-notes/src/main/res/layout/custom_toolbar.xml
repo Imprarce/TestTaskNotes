@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginRight="@dimen/value_32_dp"
+            android:layout_marginLeft="@dimen/value_8_dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/search_image"
             app:layout_constraintTop_toTopOf="parent">
@@ -38,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/search"
-                style="@style/SearchEditTextStyle"
+                android:background="@drawable/custom_edit_text"
+                style="@style/EditTextStyle"
                 android:singleLine="true" />
 
             <Button

@@ -12,7 +12,7 @@
     </style>
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
-        <item name="android:popupBackground">@color/dark_black_icon_aut</item>
+        <item name="android:popupBackground">@color/dark_black_icon</item>
         <item name="android:textSize">12sp</item>
     </style>
 

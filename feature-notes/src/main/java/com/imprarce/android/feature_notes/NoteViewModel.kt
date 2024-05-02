@@ -5,11 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.imprarce.android.feature_notes.utils.Converter
 import com.imprarce.android.local.ResponseRoom
 import com.imprarce.android.local.note.NoteItem
 import com.imprarce.android.local.note.room.NoteDbEntity
 import com.imprarce.android.local.note.room.NoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
@@ -29,12 +31,12 @@ class NoteViewModel @Inject constructor(
         getNotesList()
     }
 
-    private fun getNotesList() {
+    fun getNotesList() {
         viewModelScope.launch {
             when (val response = noteRepository.getAllNotes()) {
                 is ResponseRoom.Success -> {
                     val noteDbList = response.result
-                    _noteList.value = convertToNotesItemList(noteDbList)
+                    _noteList.value = Converter.convertToNotesItemList(noteDbList)
                 }
                 is ResponseRoom.Failure -> {
                     Log.e("NoteViewModel", "Failed to load notes: ${response.exception}")
@@ -45,28 +47,6 @@ class NoteViewModel @Inject constructor(
             }
         }
     }
-
-    private fun convertToNotesItemList(noteDbList: List<NoteDbEntity>): List<NoteItem> {
-        return noteDbList.map { noteDbEntity ->
-            NoteItem(
-                note_id = noteDbEntity.noteId,
-                title = noteDbEntity.title,
-                description = noteDbEntity.description,
-                priority = noteDbEntity.priority,
-                date = noteDbEntity.date
-            )
-        }
-    }
-
-    private fun convertToNoteItem(noteDbEntity: NoteDbEntity): NoteItem {
-        return NoteItem(
-                note_id = noteDbEntity.noteId,
-                title = noteDbEntity.title,
-                description = noteDbEntity.description,
-                priority = noteDbEntity.priority,
-                date = noteDbEntity.date
-            )
-        }
 
     fun addNewNote(title: String, description: String, priority: Int, currentTime: String) {
         val note = NoteDbEntity(
@@ -135,7 +115,7 @@ class NoteViewModel @Inject constructor(
                 is ResponseRoom.Success -> {
                     val noteDb = response.result
                     if(noteDb != null){
-                        _noteItem.value = convertToNoteItem(noteDb)
+                        _noteItem.value = Converter.convertToNoteItem(noteDb)
                     }
                 }
                 is ResponseRoom.Failure -> {

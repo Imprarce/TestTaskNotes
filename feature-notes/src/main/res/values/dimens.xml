@@ -17,6 +17,7 @@
     <dimen name="value_18_sp">18sp</dimen>
     <dimen name="value_24_sp">24sp</dimen>
     <dimen name="value_36_dp">36dp</dimen>
+    <dimen name="value_20_sp">20sp</dimen>
 
 
 </resources>

@@ -46,7 +46,7 @@ class NoteViewModel @Inject constructor(
         }
     }
 
-    private suspend fun convertToNotesItemList(noteDbList: List<NoteDbEntity>): List<NoteItem> {
+    private fun convertToNotesItemList(noteDbList: List<NoteDbEntity>): List<NoteItem> {
         return noteDbList.map { noteDbEntity ->
             NoteItem(
                 note_id = noteDbEntity.noteId,
@@ -58,7 +58,7 @@ class NoteViewModel @Inject constructor(
         }
     }
 
-    private suspend fun convertToNoteItem(noteDbEntity: NoteDbEntity): NoteItem {
+    private fun convertToNoteItem(noteDbEntity: NoteDbEntity): NoteItem {
         return NoteItem(
                 note_id = noteDbEntity.noteId,
                 title = noteDbEntity.title,

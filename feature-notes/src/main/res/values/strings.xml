@@ -13,4 +13,7 @@
     <string name="_1">1</string>
     <string name="edit">Редактировать</string>
     <string name="delete">Удалить</string>
+    <string name="search_text">Поиск заметок</string>
+    <string name="search">Поиск заметок</string>
+    <string name="clear">Очистить</string>
 </resources>

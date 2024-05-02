@@ -12,26 +12,45 @@
 
         <ImageView
             android:id="@+id/search_image"
+            style="@style/ImageViewStyle"
             android:layout_width="@dimen/value_36_dp"
             android:layout_height="@dimen/value_36_dp"
-            android:layout_marginLeft="@dimen/value_16_dp"
             android:src="@drawable/search_img"
-            style="@style/ImageViewStyle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/notes_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/notes_text"
-            android:textSize="@dimen/value_24_sp"
+            android:layout_marginLeft="@dimen/value_16_dp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="@dimen/value_0_dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/value_32_dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_image"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="@dimen/value_0_dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/search"
+                style="@style/SearchEditTextStyle"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/buttonClear"
+                style="@style/ButtonSearchStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="@string/clear"
+                android:visibility="gone" />
+        </LinearLayout>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,16 +59,20 @@ class EditorNoteFragment : Fragment() {
         }
 
         binding.saveButton.setOnClickListener {
-            val currentDate = DateFormatUtil.getCurrentDate()
-            viewModel.updateNote(noteItem = NoteItem(
-                note_id = noteId!!,
-                binding.editTextTitle.text.toString(),
-                binding.editTextDescription.text.toString(),
-                binding.seekBar.progress,
-                currentDate
-            ))
-            Toast.makeText(requireContext(), "Вы изменили заметку", Toast.LENGTH_LONG).show()
-            findNavController().popBackStack()
+            if(binding.editTextTitle.text.toString() != ""){
+                val currentDate = DateFormatUtil.getCurrentDate()
+                viewModel.updateNote(noteItem = NoteItem(
+                    note_id = noteId!!,
+                    binding.editTextTitle.text.toString(),
+                    binding.editTextDescription.text.toString(),
+                    binding.seekBar.progress,
+                    currentDate
+                ))
+                Toast.makeText(requireContext(), "Вы изменили заметку", Toast.LENGTH_LONG).show()
+                findNavController().popBackStack()
+            } else {
+                Toast.makeText(requireContext(), "Тема не может быть пустой", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

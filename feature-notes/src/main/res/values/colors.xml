@@ -11,6 +11,13 @@
     <color name="blue">#4C95FE</color>
     <color name="green_button">#3A633B</color>
 
+    <!-- Цвета для приоритетов 2-5-->
+    <color name="first_priority">#8BC34A</color>
+    <color name="second_priority">#FFF176</color>
+    <color name="third_priority">#FF9800</color>
+    <color name="fourth_priority">#FF8A65</color>
+    <color name="fifth_priority">#D32F2F </color>
+
     <!-- Светлая тема -->
     <color name="light_background">#E8EAF6</color>
     <color name="light_purple">#7986CB</color>

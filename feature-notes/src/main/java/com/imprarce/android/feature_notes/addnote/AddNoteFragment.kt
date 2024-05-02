@@ -52,18 +52,22 @@ class AddNoteFragment : BottomSheetDialogFragment() {
 
         binding.createButton.setOnClickListener {
             if (binding.editTextTitle.text.toString() != "") {
-                val currentDate = DateFormatUtil.getCurrentDate()
-                viewModel.addNewNote(
-                    binding.editTextTitle.text.toString(),
-                    binding.editTextDescription.text.toString(),
-                    binding.seekBar.progress,
-                    currentDate
-                )
-                findNavController().popBackStack()
+                createNewNote()
             } else {
                 Toast.makeText(requireContext(), "Введите тему", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun createNewNote(){
+        val currentDate = DateFormatUtil.getCurrentDate()
+        viewModel.addNewNote(
+            binding.editTextTitle.text.toString(),
+            binding.editTextDescription.text.toString(),
+            binding.seekBar.progress,
+            currentDate
+        )
+        findNavController().popBackStack()
     }
 
     private fun setBottomSheet() {

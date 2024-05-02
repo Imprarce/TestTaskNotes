@@ -7,10 +7,7 @@ import com.imprarce.android.local.note.room.NoteDbEntity
 import com.imprarce.android.local.note.room.NoteRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.test.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -23,7 +20,6 @@ internal class NoteViewModelTest {
 
     private lateinit var viewModel: NoteViewModel
     private lateinit var noteRepository: NoteRepository
-    private lateinit var testDispatcher: TestCoroutineDispatcher
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
@@ -31,8 +27,7 @@ internal class NoteViewModelTest {
     @Before
     fun setUp() {
         noteRepository = Mockito.mock(NoteRepository::class.java)
-        testDispatcher = TestCoroutineDispatcher()
-        Dispatchers.setMain(testDispatcher)
+        Dispatchers.setMain(Dispatchers.Unconfined)
         viewModel = NoteViewModel(noteRepository)
     }
 

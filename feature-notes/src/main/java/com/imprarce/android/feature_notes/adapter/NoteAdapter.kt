@@ -12,10 +12,13 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.imprarce.android.feature_notes.R
 import com.imprarce.android.feature_notes.helpers.OnDeleteNoteClicked
 import com.imprarce.android.feature_notes.helpers.OnEditNoteClicked
+import com.imprarce.android.feature_notes.utils.ThemeUtils.isDarkTheme
 import com.imprarce.android.local.note.NoteItem
 import java.util.*
 import kotlin.collections.ArrayList
@@ -41,6 +44,10 @@ class NoteAdapter(
         holder.descriptionTextView.text = currentNote.description
         holder.dateCreateTextView.text = "Заметка создана: " + currentNote.date
 
+        val constraintLayout = holder.itemView.findViewById<ConstraintLayout>(R.id.constraintLayoutNote)
+
+        setPriorityBackground(constraintLayout, currentNote.priority)
+
         holder.deleteIcon.setOnClickListener {
             showDeleteConfirmationDialog(it.context) {
                 onDeleteNoteClicked.onDeleteItemClick(currentNote)
@@ -61,14 +68,32 @@ class NoteAdapter(
         val deleteIcon: ImageView = itemView.findViewById(R.id.delete_icon)
     }
 
-    fun showDeleteConfirmationDialog(context: Context, onDeleteConfirmed: () -> Unit) {
+    private fun setPriorityBackground(constraintLayout: ConstraintLayout, priority: Int){
+        when(priority+1){
+            1 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_first)
+            2 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_second)
+            3 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_third)
+            4 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_fourth)
+            5 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_fifth)
+        }
+    }
+
+    private fun showDeleteConfirmationDialog(context: Context, onDeleteConfirmed: () -> Unit) {
         val message = "Вы уверены, что хотите удалить эту заметку?"
         val spannableMessage = SpannableString(message)
+
+        val colorResId = if (isDarkTheme(context)) {
+            R.color.dark_gray
+        } else {
+            R.color.black
+        }
+
         spannableMessage.setSpan(
-            ForegroundColorSpan(context.resources.getColor(R.color.dark_gray)),
+            ForegroundColorSpan(ContextCompat.getColor(context, colorResId)),
             0, message.length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
+
         AlertDialog.Builder(context, R.style.AlertDialogTheme)
             .setTitle("Удаление заметки")
             .setMessage(spannableMessage)
@@ -84,6 +109,7 @@ class NoteAdapter(
 
     override fun getFilter(): Filter {
         return object : Filter() {
+
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val filteredList = ArrayList<NoteItem>()
                 val filterPattern = constraint.toString().toLowerCase(Locale.getDefault()).trim()

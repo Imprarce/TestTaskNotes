@@ -22,6 +22,14 @@
         app:layout_constraintGuide_begin="@dimen/value_16_dp"
         app:layout_editor_absoluteY="@dimen/value_16_dp" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_horizontal_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/value_16_dp"
+        app:layout_editor_absoluteY="@dimen/value_16_dp" />
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/custom_toolbar"
@@ -31,10 +39,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view_notes"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="@dimen/value_0_dp"
         android:layout_marginTop="@dimen/value_16_dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guide_line_horizontal_bottom"
         app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
         app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
@@ -42,7 +51,7 @@
         tools:listitem="@layout/item_note_recycler_view"/>
 
     <ImageButton
-        android:id="@+id/addMessageButton"
+        android:id="@+id/addNoteButton"
         style="@style/CircleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

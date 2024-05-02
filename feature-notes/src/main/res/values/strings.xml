@@ -9,4 +9,8 @@
     <string name="description">Описание</string>
     <string name="save_note_text">Сохранить заметку</string>
     <string name="edit_note">Редактор заметки</string>
+    <string name="priority_text">Приоритет (от 1 до 5 по важности)</string>
+    <string name="_1">1</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
 </resources>

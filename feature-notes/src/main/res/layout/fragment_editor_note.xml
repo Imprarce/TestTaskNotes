@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".EditorNoteFragment">
+    style="@style/BackgroundStyle"
+    tools:context=".editnote.EditorNoteFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_line_vertical_right"
@@ -56,7 +57,7 @@
         android:layout_marginTop="@dimen/value_8_dp"
         android:minHeight="@dimen/value_48_dp"
         android:maxHeight="@dimen/value_120_dp"
-        android:singleLine="false"
+        android:singleLine="true"
         app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
         app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
         app:layout_constraintTop_toBottomOf="@id/title" />
@@ -69,6 +70,7 @@
         android:layout_marginTop="@dimen/value_24_dp"
         android:text="@string/description"
         android:textSize="@dimen/value_18_sp"
+        android:maxLength="200"
         app:layout_constraintBottom_toTopOf="@id/editText_description"
         app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
         app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
@@ -90,24 +92,47 @@
         app:layout_constraintTop_toBottomOf="@id/description"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/priority"
         android:layout_width="@dimen/value_0_dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/value_32_dp"
+        android:layout_marginStart="@dimen/value_8_dp"
+        android:layout_marginTop="@dimen/value_24_dp"
+        android:text="@string/priority_text"
+        android:textSize="@dimen/value_18_sp"
+        app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/editText_description" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_8_dp"
         app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
         app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left"
-        app:layout_constraintTop_toBottomOf="@+id/editText_description">
+        app:layout_constraintTop_toBottomOf="@+id/priority">
+
+        <TextView android:id="@+id/seekBarValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/_1"
+            android:layout_marginLeft="@dimen/value_8_dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:max="4" />
+            android:layout_marginTop="@dimen/value_16_dp"
+            android:max="4"
+            app:layout_constraintTop_toBottomOf="@id/seekBarValue" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/create_button"
+        android:id="@+id/save_button"
         style="@style/ButtonStyle"
         android:layout_width="@dimen/value_0_dp"
         android:layout_height="wrap_content"

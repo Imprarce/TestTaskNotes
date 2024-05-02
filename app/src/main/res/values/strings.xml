@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">TestTaskNotes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notes_text">Заметки</string>
+    <string name="text_plug">Заглушка</string>
+    <string name="create_new_note">Создать новую заметку</string>
+    <string name="theme">Тема</string>
+    <string name="description">Описание</string>
+    <string name="save_note_text">Сохранить заметку</string>
+    <string name="edit_note">Редактор заметки</string>
 </resources>

@@ -7,4 +7,47 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="blue">#4C95FE</color>
+    <color name="green_button">#3A633B</color>
+
+    <!-- Светлая тема -->
+    <color name="light_background">#E8EAF6</color>
+    <color name="light_purple">#7986CB</color>
+    <color name="light_gray_ellipse_greeting">#D9D9D9</color>
+    <color name="light_white_button_greeting">#FFF7EC</color>
+    <color name="light_gray_button_greeting">#424242</color>
+    <color name="light_gray_filters_background_main">#DBC7C6</color>
+    <color name="light_gray_line_reg">#A4A4A4</color>
+    <color name="light_white_edit_text_reg">#FCFBFA</color>
+    <color name="light_white_edit_text_stroke_reg">#B2ABAB</color>
+    <color name="light_black_icon_aut">#191F23</color>
+    <color name="light_gray_icon">#374957</color>
+    <color name="light_purple_icon_main">#ACA5FF</color>
+    <color name="light_brown_card_main">#DACFCF</color>
+    <color name="light_white_filter_main">#EEEAEA</color>
+    <color name="light_blue_filter_main">#4756AB</color>
+    <color name="light_purple_card">#D9D6E7</color>
+    <color name="light_purple_element_menu">#8685B2</color>
+    <color name="light_blue">#5D72E0</color>
+    <color name="light_red">#FA6E6E</color>
+    <color name="light_gray_element">#D9D9D9</color>
+    <color name="light_very_red">#FF0000</color>
+
+    <!-- Темная тема -->
+    <color name="dark_background">#333333</color>
+    <color name="dark_gray">#C9C9C9</color>
+    <color name="dark_purple">#575A6A</color>
+    <color name="dark_blue_button">#265274</color>
+    <color name="dark_more_blue_button">#202756</color>
+    <color name="dark_stroke_button">#B2ABAB</color>
+    <color name="dark_purple_button">#7986CB</color>
+    <color name="dark_black_icon_aut">#191F23</color>
+    <color name="dark_stroke">#333333</color>
+    <color name="dark_very_red">#FF0000</color>
+    <color name="dark_gray_menu">#595959</color>
+    <color name="dark_red">#9A3C3C</color>
+    <color name="dark_icon_user">#5C788D</color>
+    <color name="dark_blue">#5D72E0</color>
+    <color name="dark_black_filters">#3E3D3D</color>
 </resources>

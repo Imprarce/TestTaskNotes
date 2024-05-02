@@ -7,34 +7,53 @@
     android:background="@drawable/custom_rectangle_note">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title_TextView"
         android:layout_width="@dimen/value_0_dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/value_16_dp"
         android:text="@string/text_plug"
+        android:singleLine="true"
         app:layout_constraintEnd_toStartOf="@+id/delete_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/date_create_TextView"
         android:layout_width="@dimen/value_0_dp"
-        android:layout_height="@dimen/value_0_dp"
-        android:layout_margin="@dimen/value_16_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_8_dp"
+        android:layout_marginLeft="@dimen/value_16_dp"
+        android:layout_marginRight="@dimen/value_16_dp"
         android:textSize="14sp"
         android:fontFamily="sans-serif-light"
         android:text="@string/text_plug"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_TextView" />
+
+    <TextView
+        android:id="@+id/description_TextView"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="@dimen/value_0_dp"
+        android:layout_margin="@dimen/value_16_dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/text_plug"
+        android:textSize="14sp"
+        android:maxLength="200"
+        android:maxLines="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/date_create_TextView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/delete_icon"
         style="@style/ImageViewStyle"
-        android:layout_width="@dimen/value_48_dp"
-        android:layout_height="@dimen/value_48_dp"
-        android:layout_marginTop="@dimen/value_4_dp"
+        android:layout_width="@dimen/value_36_dp"
+        android:layout_height="@dimen/value_36_dp"
+        android:layout_marginTop="@dimen/value_8_dp"
+        android:layout_marginRight="@dimen/value_16_dp"
         android:src="@drawable/icon_delete"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"

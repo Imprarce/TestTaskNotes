@@ -20,13 +20,4 @@
     <style name="ImageViewStyle">
         <item name="android:tint">@color/dark_gray</item>
     </style>
-
-    <style name="BackgroundStyle">
-        <item name="android:background">@color/dark_background</item>
-    </style>
-
-    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">@color/dark_background</item>
-        <item name="android:textColor">@color/dark_gray</item>
-    </style>
 </resources>

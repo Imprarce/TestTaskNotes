@@ -20,20 +20,4 @@
     <style name="ImageViewStyle">
         <item name="android:tint">@color/light_gray_icon</item>
     </style>
-
-    <style name="BackgroundStyle">
-        <item name="android:background">@color/light_background</item>
-    </style>
-
-    <style name="AppPopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:popupBackground">@color/light_background</item>
-        <item name="android:dropDownWidth">wrap_content</item>
-    </style>
-
-    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">@color/light_background</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
 </resources>

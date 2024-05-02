@@ -52,28 +52,39 @@ class EditorNoteFragment : Fragment() {
         })
 
         viewModel.noteItem.observe(viewLifecycleOwner){ note ->
-            binding.editTextTitle.setText(note.title)
-            binding.editTextDescription.setText(note.description)
-            binding.seekBar.progress = note.priority
-            binding.seekBarValue.setText((binding.seekBar.progress+1).toString())
+           setCurrentNote(note)
         }
 
         binding.saveButton.setOnClickListener {
             if(binding.editTextTitle.text.toString() != ""){
-                val currentDate = DateFormatUtil.getCurrentDate()
-                viewModel.updateNote(noteItem = NoteItem(
-                    note_id = noteId!!,
-                    binding.editTextTitle.text.toString(),
-                    binding.editTextDescription.text.toString(),
-                    binding.seekBar.progress,
-                    currentDate
-                ))
-                Toast.makeText(requireContext(), "Вы изменили заметку", Toast.LENGTH_LONG).show()
-                findNavController().popBackStack()
+                if(noteId != null)
+                {
+                    updateNote(noteId)
+                }
             } else {
                 Toast.makeText(requireContext(), "Тема не может быть пустой", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    private fun setCurrentNote(note: NoteItem){
+        binding.editTextTitle.setText(note.title)
+        binding.editTextDescription.setText(note.description)
+        binding.seekBar.progress = note.priority
+        binding.seekBarValue.setText((binding.seekBar.progress+1).toString())
+    }
+
+    private fun updateNote(noteId: Int){
+        val currentDate = DateFormatUtil.getCurrentDate()
+        viewModel.updateNote(noteItem = NoteItem(
+            note_id = noteId,
+            binding.editTextTitle.text.toString(),
+            binding.editTextDescription.text.toString(),
+            binding.seekBar.progress,
+            currentDate
+        ))
+        Toast.makeText(requireContext(), "Вы изменили заметку", Toast.LENGTH_LONG).show()
+        findNavController().popBackStack()
     }
 
     override fun onDestroyView() {

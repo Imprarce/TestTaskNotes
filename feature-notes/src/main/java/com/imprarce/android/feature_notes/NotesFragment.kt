@@ -48,6 +48,16 @@ class NotesFragment : Fragment(), OnDeleteNoteClicked<NoteItem>, OnEditNoteClick
             setAdapter(notes)
         }
 
+        editTextSearchObserve()
+
+        binding.toolbar.buttonClear.setOnClickListener {
+            binding.toolbar.editTextSearch.text.clear()
+            hideKeyboard()
+        }
+
+    }
+
+    private fun editTextSearchObserve(){
         binding.toolbar.editTextSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -68,12 +78,6 @@ class NotesFragment : Fragment(), OnDeleteNoteClicked<NoteItem>, OnEditNoteClick
                 }
             }
         })
-
-        binding.toolbar.buttonClear.setOnClickListener {
-            binding.toolbar.editTextSearch.text.clear()
-            hideKeyboard()
-        }
-
     }
 
     private fun setAdapter(noteList: List<NoteItem>) {

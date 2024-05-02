@@ -2,6 +2,7 @@ package com.imprarce.android.feature_notes.adapter
 
 import android.app.AlertDialog
 import android.content.Context
+import android.graphics.Paint
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
@@ -29,7 +30,7 @@ class NoteAdapter(
     private val onEditNoteClicked: OnEditNoteClicked
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>(), Filterable {
 
-    private var filteredNotes : List<NoteItem> = notes.sortedByDescending { it.priority }
+    private var filteredNotes : List<NoteItem> = notes
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -39,6 +40,7 @@ class NoteAdapter(
 
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+        filteredNotes = filteredNotes.sortedByDescending { it.priority }
         val currentNote = filteredNotes[position]
         holder.titleTextView.text = currentNote.title
         holder.descriptionTextView.text = currentNote.description
@@ -57,6 +59,10 @@ class NoteAdapter(
         holder.itemView.setOnClickListener {
             onEditNoteClicked.onItemClicked(currentNote)
         }
+
+        if (isNotTextFullyVisible(holder.descriptionTextView)) {
+            holder.moreTextView.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount() = filteredNotes.size
@@ -65,9 +71,16 @@ class NoteAdapter(
         val titleTextView: TextView = itemView.findViewById(R.id.title_TextView)
         val descriptionTextView: TextView = itemView.findViewById(R.id.description_TextView)
         val dateCreateTextView: TextView = itemView.findViewById(R.id.date_create_TextView)
+        val moreTextView: TextView = itemView.findViewById(R.id.more_textView)
         val deleteIcon: ImageView = itemView.findViewById(R.id.delete_icon)
     }
 
+    private fun isNotTextFullyVisible(textView: TextView): Boolean {
+        val text = textView.text
+        val charCount = text.length
+        val newLineCount = text.count { it == '\n' }
+        return charCount == 200 || newLineCount > 5
+    }
     private fun setPriorityBackground(constraintLayout: ConstraintLayout, priority: Int){
         when(priority+1){
             1 -> constraintLayout.setBackgroundResource(R.drawable.custom_rectangle_note_first)

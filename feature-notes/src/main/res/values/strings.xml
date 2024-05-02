@@ -16,4 +16,5 @@
     <string name="search_text">Поиск заметок</string>
     <string name="search">Поиск заметок</string>
     <string name="clear">Очистить</string>
+    <string name="no_space_for_text">Весь текст не вместился...</string>
 </resources>

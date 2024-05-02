@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AddNoteFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_vertical_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/value_16_dp"
+        app:layout_editor_absoluteY="@dimen/value_16_dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line_vertical_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/value_16_dp"
+        app:layout_editor_absoluteY="@dimen/value_16_dp" />
+
+    <TextView
+        android:id="@+id/new_note_TextView"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_32_dp"
+        android:text="@string/create_new_note"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_32_dp"
+        android:layout_marginStart="@dimen/value_8_dp"
+        android:text="@string/theme"
+        android:textSize="@dimen/value_18_sp"
+        app:layout_constraintBottom_toTopOf="@id/editText_title"
+        app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@id/new_note_TextView" />
+
+    <EditText
+        android:id="@+id/editText_title"
+        style="@style/EditTextStyle"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text"
+        android:layout_marginTop="@dimen/value_8_dp"
+        android:minHeight="@dimen/value_48_dp"
+        android:maxHeight="@dimen/value_120_dp"
+        android:singleLine="false"
+        app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/value_8_dp"
+        android:layout_marginTop="@dimen/value_24_dp"
+        android:text="@string/description"
+        android:textSize="@dimen/value_18_sp"
+        app:layout_constraintBottom_toTopOf="@id/editText_description"
+        app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@id/editText_title" />
+
+    <EditText
+        android:id="@+id/editText_description"
+        style="@style/EditTextStyle"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_8_dp"
+        android:background="@drawable/custom_edit_text"
+        android:minHeight="@dimen/value_48_dp"
+        android:singleLine="false"
+        android:maxHeight="@dimen/value_200_dp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <LinearLayout
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/value_32_dp"
+        app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/editText_description">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="4" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/create_button"
+        style="@style/ButtonStyle"
+        android:layout_width="@dimen/value_0_dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/value_32_dp"
+        android:backgroundTint="@color/green_button"
+        android:minHeight="@dimen/value_60_dp"
+        android:text="@string/create_new_note"
+        android:textColor="@color/light_white_edit_text_reg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guide_line_vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/guide_line_vertical_left" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
